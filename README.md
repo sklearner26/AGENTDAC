@@ -107,12 +107,28 @@ uv run python examples/tripmate_poc_demo.py
 
 ---
 
+## 💻 Featured Proof of Concept (POC 2): Claude Code CLI
+
+AgentDAC integrates natively with Anthropic's **Claude Code CLI** (`claude`), capturing terminal sessions, user prompts, file reads, and bash tool calls without recording private chain-of-thought:
+
+![Claude Code Session Execution Graph in AgentDAC Dashboard](docs/claude_code_dashboard_screenshot.png)
+
+### Key Claude Code POC Features
+- **Zero Configuration**: Uses Claude Code's native `~/.claude/settings.json` hook format via `agentdac-claude-hook`.
+- **Privacy by Design**: Captures operational metadata (working directory, commands, file paths, tool latencies) while redacting API keys and tokens.
+- **Interactive Execution Graph**: Automatically links user prompts to subsequent tool invocations (`calls tool`, `observes`).
+
+👉 **Read the Claude Code case study**: **[docs/poc-claude-code-case-study.md](docs/poc-claude-code-case-study.md)**
+
+---
+
 ## 📚 Complete Documentation Index
 
 | Guide | Description |
 | :--- | :--- |
 | 📖 **[Architecture Deep Dive](docs/architecture.md)** | End-to-end system topology, Runtime Manager, DAG engine, persistence, and fail-open design |
-| 🧪 **[TripMate AI Case Study (POC)](docs/poc-tripmate-case-study.md)** | Real-world LangGraph 5-agent case study with full execution profiles |
+| 🧪 **[TripMate AI Case Study (POC 1)](docs/poc-tripmate-case-study.md)** | Real-world LangGraph 5-agent case study with full execution profiles |
+| 💻 **[Claude Code CLI Case Study (POC 2)](docs/poc-claude-code-case-study.md)** | Turnkey terminal observability for Claude Code CLI with live screenshot |
 | 📊 **[Benchmark Report](benchmark.md)** | Installation speeds, startup latency, API throughput, and instrumentation overhead |
 | 🐍 **[Python SDK Reference](docs/sdk.md)** | Comprehensive API documentation, context managers, decorators, and options |
 | 🔌 **[Integrations Guide](docs/integrations.md)** | Setup guides for LangChain, LangGraph, Claude Code CLI hooks, and custom agents |
